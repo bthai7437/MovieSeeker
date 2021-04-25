@@ -10,6 +10,7 @@ const MovieList = (props) => {
     setMovieId(movieId);
   };
 
+  console.log(props.movies);
   const displayPosters = props.movies.map((movie) => {
     return (
       <div key={movie.id}>

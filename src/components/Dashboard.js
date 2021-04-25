@@ -1,5 +1,4 @@
 import React from "react";
-import { Route } from "react-router";
 import Navbar from "../Layout/Navbar/Navbar";
 import MovieList from "./MovieList/MovieList";
 
