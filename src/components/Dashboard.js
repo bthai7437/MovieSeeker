@@ -14,9 +14,8 @@ const Dashboard = (props) => {
       </header>
 
       <div className="h-full">
-        <div className="grid grid-cols-4 grid-rows-5 py-6 px-5 ">
+        <div>
           <MovieList movies={props.movies} />
-          {/*<!-- Add list of movies here -->*/}
         </div>
       </div>
     </div>
