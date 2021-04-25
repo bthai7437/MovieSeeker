@@ -5,22 +5,14 @@ const MovieList = (props) => {
   const [isMovieClicked, setMovieClick] = useState(false);
   const [movieId, setMovieId] = useState("");
 
-  /*let showMovie = props.movies.map((movie) => {
-    if (isMovieClicked && movieId == movie.id) {
-      return <MovieItem movie={movie} />;
-    }
-  });*/
-  let showMovie = (movie) => {
-    if (isMovieClicked && movieId == movie.id) {
-      return <MovieItem movie={movie} />;
-    } else {
-      return null;
-    }
+  const handleMovieClicked = (movieId) => {
+    setMovieClick((prevState) => !prevState);
+    setMovieId(movieId);
   };
 
   const displayPosters = props.movies.map((movie) => {
     return (
-      <div>
+      <div key={movie.id}>
         <img
           className={`"relative cursor-pointer  p-2 z-10" + ${
             isMovieClicked ? "opacity-25" : "opacity-100"
@@ -28,12 +20,11 @@ const MovieList = (props) => {
           src={process.env.REACT_APP_POSTER_PATH + movie.poster_path}
           alt=""
           onClick={() => {
-            setMovieClick((prevState) => !prevState);
-            setMovieId(movie.id);
+            handleMovieClicked(movie.id);
           }}
         />
         {isMovieClicked && movie.id == movieId ? (
-          <MovieItem movie={movie} />
+          <MovieItem movie={movie} backClicked={handleMovieClicked} />
         ) : null}
       </div>
     );
