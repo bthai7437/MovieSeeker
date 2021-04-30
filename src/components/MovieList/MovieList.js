@@ -9,10 +9,9 @@ const MovieList = (props) => {
     setMovieClick((prevState) => !prevState);
     setMovieId(movieId);
   };
-
   console.log(props.movies);
   const displayPosters = props.movies.map((movie) => {
-    return (
+    return movie.poster_path ? (
       <div key={movie.id}>
         <img
           className={`"relative cursor-pointer  p-2 z-10" + ${
@@ -28,16 +27,14 @@ const MovieList = (props) => {
           <MovieItem movie={movie} backClicked={handleMovieClicked} />
         ) : null}
       </div>
-    );
+    ) : null;
   });
 
   return (
     <div>
-      <div className="grid grid-cols-4 grid-rows-6 py-6 px-20 ">
+      <div className="grid md:grid-cols-2 md:grid-rows-8 lg:grid-cols-4 lg:grid-rows-6 py-6 px-20">
         {displayPosters}
       </div>
-
-      {/*<div className="absolute w-3/4 mx-1/2">{showMovie}</div>*/}
     </div>
   );
 };
