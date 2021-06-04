@@ -1,9 +1,15 @@
-import React from "react";
+import React,{useState} from "react";
+import { MenuIcon } from "@heroicons/react/solid";
+
+
 
 const Navbar = (props) => {
   return (
     <nav className="bg-gray-800">
       <div className="flex flex-col md:flex-row md:space-x-6 py-4 px-4 text-lg">
+        <button className="h-10 w-10">
+          <MenuIcon className=" text-blue-500" />
+        </button>
         <button
           className="flex-initial text-gray-300 hover:bg-gray-500 px-3 py-2 rounded "
           onClick={() =>
